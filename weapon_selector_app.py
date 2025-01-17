@@ -24,15 +24,15 @@ def roll_animation(mapping):
     return random.randint(1, 60)
 
 def display_results(mapping, final_roll):
-#   st.subheader("?? サイコロ結果一覧")
-#    for num, (elem, weap) in mapping.items():
-#        if num == final_roll:
-#            st.markdown(f"**?? {num}: {elem} {weap}**")
-#        else:
-#            st.markdown(f"{num}: {elem} {weap}")
+   st.subheader("?? サイコロ結果一覧")
+    for num, (elem, weap) in mapping.items():
+        if num == final_roll:
+            st.markdown(f"**?? {num}: {elem} {weap}**")
+        else:
+            st.markdown(f"{num}: {elem} {weap}")
 
 # Streamlitアプリの設定
-st.title("おすすめスペリオル武器は　1D60!!!!")
+st.title("おすすめスペ武器 は 1D60!")
 st.write("**ランダムで武器と属性を選ぶぞ！**")
 
 if st.button("抽選する！"):
@@ -40,4 +40,4 @@ if st.button("抽選する！"):
     final_roll = roll_animation(roll_mapping)
     final_element, final_weapon = roll_mapping[final_roll]
     display_results(roll_mapping, final_roll)
-    st.success(f"最終的に選ばれたのは **{final_roll}** → **{final_element} {final_weapon}** です！")
+    st.success(f"選ばれたのは **{final_roll}** → **{final_element} {final_weapon}** !!")
