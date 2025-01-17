@@ -23,7 +23,7 @@ def roll_animation(mapping):
         time.sleep(0.05 + i * 0.002)
     return random.randint(1, 60)
 
-#def display_results(mapping, final_roll):
+def display_results(mapping, final_roll):
 #   st.subheader("?? サイコロ結果一覧")
 #    for num, (elem, weap) in mapping.items():
 #        if num == final_roll:
