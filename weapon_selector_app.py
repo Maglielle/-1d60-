@@ -35,14 +35,14 @@ def display_results(mapping, final_roll):
             st.markdown(f"{num}: {elem} {weap}")
 
 # Streamlitアプリの設定
-st.title("おすすめスペ武器は1D60!!")
-st.write("**迷ったらコレ！**")
+st.title("おすすめスペ武器1D60")
+st.write("**🔨**")
 
-if st.button("抽選する！"):
+if st.button("抽選"):
     roll_mapping = generate_roll_mapping()
     final_roll = roll_animation(roll_mapping)
     final_element, final_weapon = roll_mapping[final_roll]
     st.success(f"あなたにピッタリの一本はコレ!! → **{final_element} {final_weapon}**")
 
     # リンク追加
-    st.markdown("[スペリオル武器交換はこちらから！](https://game.granbluefantasy.jp/#shop/exchange/exchange_superlative_weapon/186)")
+    st.markdown("[スペリオル武器交換ページリンク](https://game.granbluefantasy.jp/#shop/exchange/exchange_superlative_weapon/186)")
