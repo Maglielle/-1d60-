@@ -12,19 +12,27 @@ weapons = [
 elements = ["火", "水", "土", "風", "光", "闇"]
 
 def generate_roll_mapping():
-    return {i: (random.choice(elements), random.choice(weapons)) for i in range(1, 61)}
+    # 武器と属性をシャッフルして1対1で割り当て
+    shuffled_elements = random.sample(elements, len(weapons))
+    shuffled_weapons = random.sample(weapons, len(weapons))
+    
+    # シャッフルされたリストを使って、1対1でマッピング
+    return {i: (shuffled_elements[i], shuffled_weapons[i]) for i in range(1, len(weapons) + 1)}
 
 def roll_animation(mapping):
     roll_placeholder = st.empty()
+    final_roll = None
     for i in range(30):
-        dice_roll = random.randint(1, 60)
+        dice_roll = random.randint(1, len(mapping))  # 武器と属性の数を基にロール
         elem, weap = mapping[dice_roll]
-        roll_placeholder.markdown(f"{dice_roll}** : {elem} {weap}")
+        roll_placeholder.markdown(f"{dice_roll} : {elem} {weap}")
         time.sleep(0.05 + i * 0.002)
-    return random.randint(1, 60)
+        final_roll = dice_roll  # 最後に表示されたロールを保存
+    return final_roll
 
 def display_results(mapping, final_roll):
     st.subheader("?? サイコロ結果一覧")
+    final_element, final_weapon = mapping[final_roll]
     for num, (elem, weap) in mapping.items():
         if num == final_roll:
             st.markdown(f"**?? {num}: {elem} {weap}**")
@@ -39,4 +47,7 @@ if st.button("抽選する！"):
     roll_mapping = generate_roll_mapping()
     final_roll = roll_animation(roll_mapping)
     final_element, final_weapon = roll_mapping[final_roll]
-    st.success(f"あなたにピッタリの一本はコレ!! → **{final_element} {final_weapon}** ")
+    st.success(f"あなたにピッタリの一本はコレ!! → **{final_element} {final_weapon}**")
+    display_results(roll_mapping, final_roll)
+    st.markdown("[スペリオル武器交換券を使う](https://game.granbluefantasy.jp/#shop/exchange/exchange_superlative_weapon/186)")
+
