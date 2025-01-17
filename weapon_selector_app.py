@@ -32,8 +32,8 @@ def display_results(mapping, final_roll):
             st.markdown(f"{num}: {elem} {weap}")
 
 # Streamlitアプリの設定
-st.title("スペリオルシリーズ武器ランダム抽選")
-st.write("**ランダムで武器と属性を選びます！**")
+st.title("おすすめスペリオル武器は　1D60!!!!")
+st.write("**ランダムで武器と属性を選ぶぞ！**")
 
 if st.button("抽選する！"):
     roll_mapping = generate_roll_mapping()
