@@ -13,7 +13,7 @@ elements = ["火", "水", "土", "風", "光", "闇"]
 
 def generate_roll_mapping():
     # 属性のリストを武器の数に合わせて繰り返す
-    extended_elements = elements * (len(weapons) // len(elements)) + elements[:len(weapons) % len(elements)]
+    extended_elements = (elements * ((len(weapons) // len(elements)) + 1))[:len(weapons)]
     
     # 武器と属性をシャッフルして1対1で割り当て
     shuffled_elements = random.sample(extended_elements, len(weapons))
