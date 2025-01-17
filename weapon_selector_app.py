@@ -2,14 +2,14 @@ import streamlit as st
 import random
 import time
 
-# •Ší‚Æ‘®«‚ÌƒŠƒXƒg
+# æ­¦å™¨ã¨å±æ€§ã®ãƒªã‚¹ãƒˆ
 weapons = [
-    "ƒGƒNƒXƒJƒŠƒo[", "ƒwƒ‰ƒNƒŒƒX", "ƒQƒCƒ{ƒ‹ƒO", "ƒ_ƒ}ƒXƒJƒXƒiƒCƒt",
-    "ƒJƒhƒDƒPƒEƒX", "ƒ~ƒ‡ƒ‹ƒjƒ‹", "ƒtƒ‰ƒCƒN[ƒQƒ‹", "•û“V‰æŒ",
-    "ƒEƒ‹ƒŠƒNƒ€ƒ~", "“V‰HXa"
+    "ã‚¨ã‚¯ã‚¹ã‚«ãƒªãƒãƒ¼", "ãƒ˜ãƒ©ã‚¯ãƒ¬ã‚¹", "ã‚²ã‚¤ãƒœãƒ«ã‚°", "ãƒ€ãƒã‚¹ã‚«ã‚¹ãƒŠã‚¤ãƒ•",
+    "ã‚«ãƒ‰ã‚¥ã‚±ã‚¦ã‚¹", "ãƒŸãƒ§ãƒ«ãƒ‹ãƒ«", "ãƒ•ãƒ©ã‚¤ã‚¯ãƒ¼ã‚²ãƒ«", "æ–¹å¤©ç”»æˆŸ",
+    "ã‚¦ãƒ«ãƒªã‚¯ãƒ ãƒŸ", "å¤©ç¾½ã€…æ–¬"
 ]
 
-elements = ["‰Î", "…", "“y", "•—", "Œõ", "ˆÅ"]
+elements = ["ç«", "æ°´", "åœŸ", "é¢¨", "å…‰", "é—‡"]
 
 def generate_roll_mapping():
     return {i: (random.choice(elements), random.choice(weapons)) for i in range(1, 61)}
@@ -24,20 +24,20 @@ def roll_animation(mapping):
     return random.randint(1, 60)
 
 def display_results(mapping, final_roll):
-    st.subheader("?? ƒTƒCƒRƒŒ‹‰Êˆê——")
+    st.subheader("?? ã‚µã‚¤ã‚³ãƒ­çµæœä¸€è¦§")
     for num, (elem, weap) in mapping.items():
         if num == final_roll:
             st.markdown(f"**?? {num}: {elem} {weap}**")
         else:
             st.markdown(f"{num}: {elem} {weap}")
 
-# StreamlitƒAƒvƒŠ‚Ìİ’è
-st.title("ƒXƒyƒŠƒIƒ‹ƒVƒŠ[ƒY•Šíƒ‰ƒ“ƒ_ƒ€’Š‘I")
-st.write("**ƒ‰ƒ“ƒ_ƒ€‚Å•Ší‚Æ‘®«‚ğ‘I‚Ñ‚Ü‚·I**")
+# Streamlitã‚¢ãƒ—ãƒªã®è¨­å®š
+st.title("ã‚¹ãƒšãƒªã‚ªãƒ«ã‚·ãƒªãƒ¼ã‚ºæ­¦å™¨ãƒ©ãƒ³ãƒ€ãƒ æŠ½é¸")
+st.write("**ãƒ©ãƒ³ãƒ€ãƒ ã§æ­¦å™¨ã¨å±æ€§ã‚’é¸ã³ã¾ã™ï¼**")
 
-if st.button("’Š‘I‚·‚éI"):
+if st.button("æŠ½é¸ã™ã‚‹ï¼"):
     roll_mapping = generate_roll_mapping()
     final_roll = roll_animation(roll_mapping)
     final_element, final_weapon = roll_mapping[final_roll]
     display_results(roll_mapping, final_roll)
-    st.success(f"ÅI“I‚É‘I‚Î‚ê‚½‚Ì‚Í **{final_roll}** ¨ **{final_element} {final_weapon}** ‚Å‚·I")
+    st.success(f"æœ€çµ‚çš„ã«é¸ã°ã‚ŒãŸã®ã¯ **{final_roll}** â†’ **{final_element} {final_weapon}** ã§ã™ï¼")
