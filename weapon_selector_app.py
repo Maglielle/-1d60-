@@ -24,12 +24,12 @@ def roll_animation(mapping):
     return random.randint(1, 60)
 
 def display_results(mapping, final_roll):
-#    st.subheader("?? サイコロ結果一覧")
-#    for num, (elem, weap) in mapping.items():
-#        if num == final_roll:
-#            st.markdown(f"**?? {num}: {elem} {weap}**")
-#        else:
-#            st.markdown(f"{num}: {elem} {weap}")
+    st.subheader("?? サイコロ結果一覧")
+    for num, (elem, weap) in mapping.items():
+        if num == final_roll:
+            st.markdown(f"**?? {num}: {elem} {weap}**")
+        else:
+            st.markdown(f"{num}: {elem} {weap}")
 
 # Streamlitアプリの設定
 st.title("おすすめスペ武器は1D60!!")
