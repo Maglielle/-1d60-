@@ -19,7 +19,7 @@ def roll_animation(mapping):
     for i in range(30):
         dice_roll = random.randint(1, 60)
         elem, weap = mapping[dice_roll]
-        roll_placeholder.markdown(f"?? **{dice_roll}** : {elem} {weap}")
+        roll_placeholder.markdown(f"{dice_roll}** : {elem} {weap}")
         time.sleep(0.05 + i * 0.002)
     return random.randint(1, 60)
 
@@ -39,4 +39,4 @@ if st.button("抽選する！"):
     roll_mapping = generate_roll_mapping()
     final_roll = roll_animation(roll_mapping)
     final_element, final_weapon = roll_mapping[final_roll]
-    st.success(f"あなたにピッタリの一本はコレ!! ** → **{final_element} {final_weapon}** ")
+    st.success(f"あなたにピッタリの一本はコレ!! → **{final_element} {final_weapon}** ")
