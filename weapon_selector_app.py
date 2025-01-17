@@ -39,5 +39,4 @@ if st.button("抽選する！"):
     roll_mapping = generate_roll_mapping()
     final_roll = roll_animation(roll_mapping)
     final_element, final_weapon = roll_mapping[final_roll]
-    display_results(roll_mapping, final_roll)
-    st.success(f"あなたにピッタリの一本はコレ!! **{final_roll}** → **{final_element} {final_weapon}** ")
+    st.success(f"あなたにピッタリの一本はコレ!! ** → **{final_element} {final_weapon}** ")
